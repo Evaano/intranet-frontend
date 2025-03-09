@@ -8,10 +8,10 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
-import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { theme } from "~/theme";
+import "@mantine/core/styles.css";
+import pattern from "./assets/bg-pattern.svg";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -34,9 +34,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <ColorSchemeScript />
         <title></title>
       </head>
-      <body>
+      <body style={{ backgroundImage: `url(${pattern})` }}>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -47,7 +48,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <MantineProvider theme={theme}>
+    <MantineProvider theme={theme} forceColorScheme="light">
       <Outlet />
     </MantineProvider>
   );

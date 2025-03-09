@@ -1,6 +1,5 @@
 import type { Route } from "./+types/home";
 import { Container } from "@mantine/core";
-import { Welcome } from "~/welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -12,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <Container fluid>
-      <Welcome />
+
     </Container>
   );
 }
