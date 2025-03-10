@@ -1,18 +1,19 @@
 import {
-    Icon2fa,
-    IconBellRinging,
-    IconDatabaseImport,
-    IconFingerprint,
-    IconKey,
-    IconReceipt2, IconSettings
+  IconCalendarCheck,
+  IconDatabase,
+  IconFileText,
+  IconLayoutDashboard,
+  IconSettings,
+  IconShieldLock,
+  IconSpeakerphone,
 } from "@tabler/icons-react";
 
 export const NavRoutes = [
-    { link: '', label: 'Dashboard', icon: IconBellRinging },
-    { link: '', label: 'Attendance', icon: IconReceipt2 },
-    { link: '', label: 'Announcements', icon: IconFingerprint },
-    { link: '', label: 'SSH Keys', icon: IconKey },
-    { link: '', label: 'Databases', icon: IconDatabaseImport },
-    { link: '', label: 'Authentication', icon: Icon2fa },
-    { link: '', label: 'Other Settings', icon: IconSettings },
+  { link: "/home", label: "Dashboard", icon: IconLayoutDashboard },
+  { link: "", label: "Attendance", icon: IconCalendarCheck },
+  { link: "", label: "Announcements", icon: IconSpeakerphone },
+  { link: "", label: "Reports", icon: IconFileText },
+  { link: "", label: "Data Import", icon: IconDatabase },
+  { link: "", label: "Security", icon: IconShieldLock },
+  { link: "", label: "Settings", icon: IconSettings },
 ];

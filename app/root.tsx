@@ -8,9 +8,10 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import { MantineProvider, ColorSchemeScript } from "@mantine/core";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { theme } from "~/theme";
 import "@mantine/core/styles.css";
+import "@mantine/charts/styles.css";
 import pattern from "./assets/bg-pattern.svg";
 
 export const links: Route.LinksFunction = () => [
