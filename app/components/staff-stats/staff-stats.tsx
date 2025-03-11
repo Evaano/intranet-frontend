@@ -26,6 +26,24 @@ const legendItems = [
   },
 ];
 
+const departments: string[] = [
+  'Medical Department',
+  'ICT Department',
+  'Public Relations and Media',
+  'Laboratory Medicine',
+  'Bureau',
+  'Medical Administration',
+  'Medical Records',
+  'Nursing Department',
+  'Estate',
+  'Human Resources',
+  'Quality Assurance',
+  'Finance',
+  'Procurement'
+];
+
+const sortedDepartments = [...departments].sort((a, b) => a.localeCompare(b));
+
 export function StaffStats() {
   return (
     <Box mt="md">
@@ -36,7 +54,7 @@ export function StaffStats() {
         <Group>
           <Select
             placeholder="Department"
-            data={["React", "Angular", "Vue", "Svelte"]}
+            data={sortedDepartments}
             radius="md"
             variant="filled"
             size="xs"
