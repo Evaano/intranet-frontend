@@ -1,5 +1,15 @@
-import { Box, Flex, Group, Paper, Select, Text, Title } from "@mantine/core";
+import {
+  Box,
+  Container,
+  Flex,
+  Group,
+  Paper,
+  Select,
+  Text,
+  Title,
+} from "@mantine/core";
 import { DonutChart } from "@mantine/charts";
+import { DatePickerInput } from "@mantine/dates";
 
 export const data = [
   { id: 1, name: "Male (Local)", value: 75, color: "#7AD1E4" },
@@ -27,50 +37,52 @@ const legendItems = [
 ];
 
 const departments: string[] = [
-  'Medical Department',
-  'ICT Department',
-  'Public Relations and Media',
-  'Laboratory Medicine',
-  'Bureau',
-  'Medical Administration',
-  'Medical Records',
-  'Nursing Department',
-  'Estate',
-  'Human Resources',
-  'Quality Assurance',
-  'Finance',
-  'Procurement'
+  "Medical Department",
+  "ICT Department",
+  "Public Relations and Media",
+  "Laboratory Medicine",
+  "Bureau",
+  "Medical Administration",
+  "Medical Records",
+  "Nursing Department",
+  "Estate",
+  "Human Resources",
+  "Quality Assurance",
+  "Finance",
+  "Procurement",
 ];
-
-const sortedDepartments = [...departments].sort((a, b) => a.localeCompare(b));
 
 export function StaffStats() {
   return (
-    <Box mt="md">
+    <Container fluid mt="md" p={0} style={{ flex: 1, minWidth: 300 }}>
       <Title order={4} c="brunswick-green.9">
         Staff Statistics
       </Title>
-      <Paper shadow="lg" radius="lg" p="xl" mih={375}>
+      <Paper shadow="lg" radius="lg" p="xl" h="100%">
         <Group>
+          <DatePickerInput
+            variant="filled"
+            clearable
+            placeholder="Date"
+            size="xs"
+          />
           <Select
             placeholder="Department"
-            data={sortedDepartments}
+            data={departments}
             radius="md"
             variant="filled"
             size="xs"
           />
         </Group>
 
-        {/* Use flex-direction column on small screens */}
         <Flex
           my="xl"
           direction={{ base: "column", sm: "row" }}
-          justify={{ base: "center", sm: "space-between" }}
-          align={{ base: "center", sm: "flex-start" }}
+          justify="space-between"
+          align="center"
           gap="lg"
         >
-          {/* Center the chart on small screens */}
-          <Box style={{ textAlign: "center" }}>
+          <Box style={{ flex: 1, maxWidth: "100%" }}>
             <DonutChart
               size={200}
               thickness={50}
@@ -80,7 +92,6 @@ export function StaffStats() {
             />
           </Box>
 
-          {/* Legend section */}
           <Flex
             justify="space-between"
             align={{ base: "center", sm: "flex-start" }}
@@ -114,6 +125,6 @@ export function StaffStats() {
           </Flex>
         </Flex>
       </Paper>
-    </Box>
+    </Container>
   );
 }

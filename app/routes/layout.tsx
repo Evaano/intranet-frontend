@@ -23,7 +23,7 @@ export default function Layout() {
       }}
     >
       {/* Header */}
-      <AppShell.Header withBorder={false}>
+      <AppShell.Header withBorder={false} visibleFrom="sm">
         <Group h="100%" justify="flex-end" m="calc(var(--mantine-spacing-md) * 1.5)">
           <UserButton />
         </Group>

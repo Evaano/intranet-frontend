@@ -1,7 +1,6 @@
 import {
   Box,
   Container,
-  Flex,
   Group,
   Paper,
   Select,
@@ -49,13 +48,24 @@ const departments: string[] = [
   "Procurement",
 ];
 
-export function AttendanceStats() {
+export function Sidebar() {
   return (
     <Container fluid>
       <Title order={4} c="brunswick-green.9">
         Attendance Statistics
       </Title>
-      <Paper shadow="lg" radius="lg" p="xl" h="100%">
+      <Paper
+        shadow="lg"
+        radius="lg"
+        p="xl"
+        h="100%"
+        style={{
+          minHeight: 800,
+          backgroundColor: "rgba(182, 182, 182, 0.1)",
+          border: "1px solid rgba(255, 255, 255, 0.3)",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        }}
+      >
         <Group mb="xl">
           <DatePickerInput
             variant="filled"
@@ -71,41 +81,6 @@ export function AttendanceStats() {
             size="xs"
           />
         </Group>
-
-        <SimpleGrid cols={{ base: 1, sm: 2 }}>
-          <Container fluid>
-            <DonutChart
-              size={200}
-              thickness={50}
-              data={data}
-              withTooltip={false}
-              strokeWidth={0}
-            />
-          </Container>
-
-          <Container fluid>
-            {legendItems.map(({ id, label, color, value }) => (
-              <Group key={id} gap="xl" mb={7} justify="space-between" w="100%">
-                <Group gap="xs">
-                  <Box
-                    style={{
-                      width: 12,
-                      height: 12,
-                      borderRadius: "50%",
-                      backgroundColor: color,
-                    }}
-                  />
-                  <Text c="brunswick-green.9" size="sm">
-                    {label}
-                  </Text>
-                </Group>
-                <Text c="earth-yellow.7" size="sm" fw={700}>
-                  {value}
-                </Text>
-              </Group>
-            ))}
-          </Container>
-        </SimpleGrid>
       </Paper>
     </Container>
   );

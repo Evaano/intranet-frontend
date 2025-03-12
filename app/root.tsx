@@ -12,6 +12,7 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { theme } from "~/theme";
 import "@mantine/core/styles.css";
 import "@mantine/charts/styles.css";
+import "@mantine/dates/styles.css";
 import pattern from "./assets/bg-pattern.svg";
 
 export const links: Route.LinksFunction = () => [
@@ -35,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <ColorSchemeScript />
+        <ColorSchemeScript forceColorScheme="light" />
         <title></title>
       </head>
       <body style={{ backgroundImage: `url(${pattern})` }}>
