@@ -39,7 +39,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <ColorSchemeScript forceColorScheme="light" />
         <title></title>
       </head>
-      <body style={{ backgroundImage: `url(${pattern})` }}>
+      <body
+        style={{
+          backgroundImage: `url(${pattern})`,
+          backgroundColor: "rgba(211, 211, 211, 0.7)",
+        }}
+      >
         {children}
         <ScrollRestoration />
         <Scripts />

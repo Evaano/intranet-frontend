@@ -1,11 +1,9 @@
-import {
-  AppShell,
-  Group,
-} from "@mantine/core";
+import { AppShell, Group, Paper } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router";
 import { Navbar } from "~/components/navbar/navbar";
-import {UserButton} from "~/components/user-button/user-button";
+import { UserButton } from "~/components/user-button/user-button";
+import classes from "~/components/navbar/navbar.module.css";
 
 export default function Layout() {
   const [opened, { toggle }] = useDisclosure();
@@ -14,8 +12,7 @@ export default function Layout() {
     <AppShell
       padding="md"
       layout="alt"
-      header={{ height: 60 }}
-      footer={{ height: 60 }}
+      header={{ height: 70 }}
       navbar={{
         width: 220,
         breakpoint: "sm",
@@ -23,8 +20,13 @@ export default function Layout() {
       }}
     >
       {/* Header */}
-      <AppShell.Header withBorder={false} visibleFrom="sm">
-        <Group h="100%" justify="flex-end" m="calc(var(--mantine-spacing-md) * 1.5)">
+      <AppShell.Header
+        withBorder={false}
+        visibleFrom="sm"
+        p="md"
+        bg="transparent"
+      >
+        <Group justify="flex-end">
           <UserButton />
         </Group>
       </AppShell.Header>

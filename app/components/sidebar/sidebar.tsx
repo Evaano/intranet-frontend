@@ -50,9 +50,12 @@ const departments: string[] = [
 
 export function Sidebar() {
   return (
-    <Container fluid>
-      <Title order={4} c="brunswick-green.9">
-        Attendance Statistics
+    <Box
+      my="md"
+      style={{ display: "flex", flexDirection: "column", width: "100%" }}
+    >
+      <Title order={4} c="brunswick-green.9" my="md">
+        Events Calender
       </Title>
       <Paper
         shadow="lg"
@@ -60,10 +63,11 @@ export function Sidebar() {
         p="xl"
         h="100%"
         style={{
-          minHeight: 800,
           backgroundColor: "rgba(182, 182, 182, 0.1)",
           border: "1px solid rgba(255, 255, 255, 0.3)",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          width: '100%',
+          minHeight: 'calc(100vh - 280px)',
         }}
       >
         <Group mb="xl">
@@ -82,6 +86,6 @@ export function Sidebar() {
           />
         </Group>
       </Paper>
-    </Container>
+    </Box>
   );
 }

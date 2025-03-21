@@ -1,17 +1,6 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Group,
-  Paper,
-  Select,
-  Text,
-  Title,
-} from "@mantine/core";
-import { DonutChart } from "@mantine/charts";
-import { DatePickerInput } from "@mantine/dates";
+import { StatsCard } from "~/components/stats-card/stats-card";
 
-export const data = [
+export const chartData = [
   { id: 1, name: "Male (Local)", value: 75, color: "#7AD1E4" },
   { id: 2, name: "Female (Local)", value: 410, color: "#FFAAD3" },
   { id: 3, name: "Male (Foreign)", value: 30, color: "#4B98DF" },
@@ -54,77 +43,11 @@ const departments: string[] = [
 
 export function StaffStats() {
   return (
-    <Container fluid mt="md" p={0} style={{ flex: 1, minWidth: 300 }}>
-      <Title order={4} c="brunswick-green.9">
-        Staff Statistics
-      </Title>
-      <Paper shadow="lg" radius="lg" p="xl" h="100%">
-        <Group>
-          <DatePickerInput
-            variant="filled"
-            clearable
-            placeholder="Date"
-            size="xs"
-          />
-          <Select
-            placeholder="Department"
-            data={departments}
-            radius="md"
-            variant="filled"
-            size="xs"
-          />
-        </Group>
-
-        <Flex
-          my="xl"
-          direction={{ base: "column", sm: "row" }}
-          justify="space-between"
-          align="center"
-          gap="lg"
-        >
-          <Box style={{ flex: 1, maxWidth: "100%" }}>
-            <DonutChart
-              size={200}
-              thickness={50}
-              data={data}
-              withTooltip={false}
-              strokeWidth={0}
-            />
-          </Box>
-
-          <Flex
-            justify="space-between"
-            align={{ base: "center", sm: "flex-start" }}
-            direction="column"
-            wrap="wrap"
-            w={{ base: "100%", sm: "auto" }}
-            mt={{ base: "md", sm: 0 }}
-          >
-            <div style={{ width: "100%" }}>
-              {legendItems.map(({ id, label, color, value }) => (
-                <Group key={id} gap="xl" mb={7} justify="space-between">
-                  <Group gap="xs">
-                    <Box
-                      style={{
-                        width: 12,
-                        height: 12,
-                        borderRadius: "50%",
-                        backgroundColor: color,
-                      }}
-                    />
-                    <Text c="brunswick-green.9" size="sm">
-                      {label}
-                    </Text>
-                  </Group>
-                  <Text c="earth-yellow.7" size="sm" fw={700}>
-                    {value}
-                  </Text>
-                </Group>
-              ))}
-            </div>
-          </Flex>
-        </Flex>
-      </Paper>
-    </Container>
+    <StatsCard
+      title="Staff Statistics"
+      chartData={chartData}
+      legendItems={legendItems}
+      departments={departments}
+    />
   );
 }

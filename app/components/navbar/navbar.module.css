@@ -56,3 +56,8 @@
     width: 25px;
     height: 25px;
 }
+
+.header {
+    background-color:var(--mantine-color-brunswick-green-7);
+    overflow: hidden;
+}

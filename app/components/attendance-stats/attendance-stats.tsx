@@ -1,18 +1,6 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Group,
-  Paper,
-  Select,
-  SimpleGrid,
-  Text,
-  Title,
-} from "@mantine/core";
-import { DonutChart } from "@mantine/charts";
-import { DatePickerInput } from "@mantine/dates";
+import { StatsCard } from "~/components/stats-card/stats-card";
 
-export const data = [
+export const chartData = [
   { id: 1, name: "To Attend", value: 75, color: "#5DA7EB" },
   { id: 2, name: "Attended", value: 699, color: "#2CA076" },
   { id: 3, name: "Absent", value: 30, color: "#D11C29" },
@@ -51,62 +39,11 @@ const departments: string[] = [
 
 export function AttendanceStats() {
   return (
-    <Container fluid>
-      <Title order={4} c="brunswick-green.9">
-        Attendance Statistics
-      </Title>
-      <Paper shadow="lg" radius="lg" p="xl" h="100%">
-        <Group mb="xl">
-          <DatePickerInput
-            variant="filled"
-            clearable
-            placeholder="Date"
-            size="xs"
-          />
-          <Select
-            placeholder="Department"
-            data={departments}
-            radius="md"
-            variant="filled"
-            size="xs"
-          />
-        </Group>
-
-        <SimpleGrid cols={{ base: 1, sm: 2 }}>
-          <Container fluid>
-            <DonutChart
-              size={200}
-              thickness={50}
-              data={data}
-              withTooltip={false}
-              strokeWidth={0}
-            />
-          </Container>
-
-          <Container fluid>
-            {legendItems.map(({ id, label, color, value }) => (
-              <Group key={id} gap="xl" mb={7} justify="space-between" w="100%">
-                <Group gap="xs">
-                  <Box
-                    style={{
-                      width: 12,
-                      height: 12,
-                      borderRadius: "50%",
-                      backgroundColor: color,
-                    }}
-                  />
-                  <Text c="brunswick-green.9" size="sm">
-                    {label}
-                  </Text>
-                </Group>
-                <Text c="earth-yellow.7" size="sm" fw={700}>
-                  {value}
-                </Text>
-              </Group>
-            ))}
-          </Container>
-        </SimpleGrid>
-      </Paper>
-    </Container>
+    <StatsCard
+      title="Attendance Statistics"
+      chartData={chartData}
+      legendItems={legendItems}
+      departments={departments}
+    />
   );
 }
